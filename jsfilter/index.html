@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            font-family: sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            text-decoration: none;
+            outline: none;
+            list-style: none;
+        }
+
+        body {
+            width: 80%;
+            margin: auto;
+        }
+
+        input {
+            width: 100%;
+            background-color: rgb(183, 183, 165);
+            border: 3px solid green;
+            border-radius: 5px;
+            padding: 7px;
+        }
+
+        ul {
+            background-color: rgb(223, 241, 223);
+        }
+
+        ul li {
+            width: 100%;
+            text-align: center;
+            margin: 5px;
+            padding: 6px;
+        }
+    </style>
+
+</head>
+
+<body>
+
+
+    <input type="text" id="search-input">
+    <ul>
+        <li class="listItem">apple</li>
+        <li class="listItem">banana</li>
+        <li class="listItem">mango</li>
+        <li class="listItem">grapes</li>
+        <li class="listItem">lichi</li>
+
+    </ul>
+
+    <script>
+
+        document.getElementById("search-input").
+            addEventListener("input", filterList);
+
+        function filterList() {
+            const searchInput = document.getElementById("search-input");
+            const filter = searchInput.value.toLowerCase();
+            const listItem = document.querySelectorAll('.listItem');
+
+
+            listItem.forEach((item) => {
+                let text = item.textContent;
+                if (text.toLowerCase().includes(filter.toLowerCase())) {
+                    item.style.display = '';
+                }
+                else {
+                    item.style.display = 'none';
+                }
+            })
+        }
+
+    </script>
+</body>
+
+</html>
